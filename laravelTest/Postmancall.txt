@@ -1,0 +1,12 @@
+
+
+127.0.0.1:8000/createobj
+
+
+{
+
+"name":"apiuser",
+"email":"apiuser@test.com",
+"password":"secret"
+
+}
