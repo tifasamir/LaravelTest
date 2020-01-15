@@ -4,26 +4,35 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-class UserController extends Controller
+use App\Repositories\UserRepositoryInterface;
+use App\Repositories\UserRepo;
+class UserController extends Controller implements UserRepositoryInterface
 {
-    //
+  
 
+    /*
+    * TODO ::  all :: array
+    */
     public function index(){
 
      $users =    User::all();
       return $users;
     }
-
+     /*
+    * TODO ::  all :: first
+    */
     public function getFirst(){
 
-        $users =    User::all()->first()->get();
+        $users =    User::first();
          return $users;
     }
 
-
+    /*
+    * TODO ::  create :: array
+    */
     public function createArray(){
 
-        User::truncate();
+        // User::truncate();
        
         $faker = \Faker\Factory::create();
          for ($i = 0; $i < 10; $i++) {
@@ -35,6 +44,10 @@ class UserController extends Controller
             ]);
         }
     }
+
+    /*
+    * TODO ::  create :: object
+    */
     public function createobj(Request $request){
 
         $user =   new User;
@@ -48,13 +61,18 @@ class UserController extends Controller
          return $user;
     
     }
-
+    
+    /*
+    * TODO ::  limit :: 5
+    */
     public function getLimit5(Request $request){
 
-       // $users =    User::all()->limit(5)->get();
-        $users =    User::take(5)->get();
+      
+         $users =    User::take(5)->get();
          return $users;
      
     
     }
+
+    
 }

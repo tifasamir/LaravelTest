@@ -11,19 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('getall', 'UserController@index');
+Route::get('getfirst', 'UserController@getFirst');
 Route::get('createArray', 'UserController@createArray');
 Route::get('createobj', 'UserController@createobj');
 
 Route::get('getLimit5', 'UserController@getLimit5');
 
 
+// Route::get('gettoken', function() {
+//     return csrf_token(); 
 
-Route::get('gettoken', function() {
-    return csrf_token(); 
-
-  });
+//   });
