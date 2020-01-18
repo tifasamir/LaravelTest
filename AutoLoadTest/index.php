@@ -6,7 +6,7 @@ require_once 'router.php';
 $usersCon =new App\Controller\UserController;
 
 		try{
-		//	include 'connection.php';
+	
 			$method_name=$_SERVER["REQUEST_METHOD"];
 			$action = $_SERVER['REQUEST_URI'];
 			if($_SERVER["REQUEST_URI"]){
@@ -14,41 +14,31 @@ $usersCon =new App\Controller\UserController;
 				{
 					case '/LaravelTest/AutoLoadTest/getall':
 					{
-						// echo '/index';
-						// echo $action ;
-						
-							
-							echo '/getall';
-						//	$users = new App\User;
-						//	echo $users::all();
-							 $usersCon->getAll()->echoResult();
-							echo '<br/>';
-							echo '<hr/>';
-
+						 $usersCon->getAll()->echoResult();
 						break;
 					}	
 					case '/LaravelTest/AutoLoadTest/getFirst':	
 					{
-						echo '/getFirst';
-						echo '<br/>';
-						echo $action ;
+						// echo '/getFirst';
+						// echo '<br/>';
+						// echo $action ;
 						 $usersCon->getAll()->getFirst()->echoResult();
-						 echo '<hr/>';
+						//  echo '<hr/>';
 						break;
 					}  
 					case '/LaravelTest/AutoLoadTest/getLimit5':	
 						{
-							echo '/getLimit5';
-							echo '<br/>';
-							echo $action ;
+							// echo '/getLimit5';
+							// echo '<br/>';
+							// echo $action ;
 							$usersCon->getAll()->getLimit5()->echoResult();
 							break;
 						}//getLimit5
 					case '/LaravelTest/AutoLoadTest/createArray':	
 						{
-							echo '/createArray';
-							echo '<br/>';
-							echo $action ;
+							// echo '/createArray';
+							// echo '<br/>';
+							// echo $action ;
 							$usersCon->createArray();
 							break;
 						}//	
@@ -76,16 +66,11 @@ $usersCon =new App\Controller\UserController;
 									throw new Exception('Received content contained invalid JSON!');
 								}
 							
-							// echo '/createobj';
-							// echo '<br/>';
-							// echo $action ;
+							
+						     $usersCon->createobj($decoded );
 
-						
-					//    var_dump($decoded);
-				//  echo $content;
-			
-						//	   echo $decoded;
-						  $usersCon->createobj($decoded );
+
+
 							break;
 						}//			
 
@@ -98,14 +83,5 @@ $usersCon =new App\Controller\UserController;
 			 echo 'Caught exception: ',  $e->getMessage(), "\n";
 		    }
 
-	
-// $usersCon =new App\Controller\UserController;
-// echo $usersCon->getFirst();
-// echo '<hr/>';
-// //echo $usersCon->createArray();
-// echo $usersCon->getLimit5();
-
-// echo '<hr/>';
-// echo $usersCon->index();
 
 ?>
